@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import io from "socket.io-client";
+import styled, { keyframes } from "styled-components";
+import { flipInY } from "react-animations";
 
 import logo from "../assets/logo.svg";
 import like from "../assets/like.svg";
@@ -7,6 +10,11 @@ import dislike from "../assets/dislike.svg";
 import api from "../services/api";
 
 import "./Main.css";
+
+const Bounce = styled.div`
+  animation: 2s ${keyframes`${flipInY}; 
+  animationDuration: '0.05s'`};
+`;
 
 export default function Main({ match }) {
   const [users, setUsers] = useState([]);
@@ -22,6 +30,10 @@ export default function Main({ match }) {
     }
 
     loadtUsers();
+  }, [match.params.id]);
+
+  useEffect(() => {
+    const socket = io("http://localhost:3333");    
   }, [match.params.id]);
 
   async function handleDislike(id) {
@@ -48,21 +60,23 @@ export default function Main({ match }) {
       {users.length > 0 ? (
         <ul>
           {users.map(user => (
-            <li key={user._id}>
-              <img src={user.avatar} alt="" />
-              <footer>
-                <strong>{user.name}</strong>
-                <p>{user.bio}</p>
-              </footer>
-              <div className="buttons">
-                <button type="button" onClick={() => handleDislike(user._id)}>
-                  <img src={dislike} alt="dislike" />
-                </button>
-                <button type="button" onClick={() => handleLike(user._id)}>
-                  <img src={like} alt="like" />
-                </button>
-              </div>
-            </li>
+            <Bounce>
+              <li key={user._id}>
+                <img src={user.avatar} alt="" />
+                <footer>
+                  <strong>{user.name}</strong>
+                  <p>{user.bio}</p>
+                </footer>
+                <div className="buttons">
+                  <button type="button" onClick={() => handleDislike(user._id)}>
+                    <img src={dislike} alt="dislike" />
+                  </button>
+                  <button type="button" onClick={() => handleLike(user._id)}>
+                    <img src={like} alt="like" />
+                  </button>
+                </div>
+              </li>
+            </Bounce>
           ))}
         </ul>
       ) : (

@@ -9,7 +9,7 @@
   width: 100%;
   max-width: 300px;
   display: flex;
-  flex-direction: column
+  flex-direction: column;
 }
 
 .login-container form input {
@@ -23,7 +23,7 @@
 }
 
 .login-container form input::placeholder {
-  color: #999
+  color: #999;
 }
 
 .login-container form button {

@@ -108,9 +108,6 @@
 }
  
 .match-container button {
-  border: 1px solid #FFF;
-  border-radius: 8px;
-  padding: 10px 20px;
   background:  none;
   font-weight: bold;
   color:  rgba(255,255,255,0.8);

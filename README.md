@@ -1,4 +1,4 @@
-# tindev Frontend
+# tindev - Frontend
 
 ## The project came up during week 8, event held by Rocketseat, under the command of Diego Fernandes.
 ## Projeto desenvolvido durante a GoWeek 8, evento realizado pela Rocketseat, sob o comando do Diego Fernandes.
@@ -17,4 +17,4 @@
  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.<br>
 
  Execute o aplicativo em modo de desenvolvedor. <br>
- Abra [http: // localhost: 3000] (http: // localhost: 3000) para visualizá-lo no navegador.<br>
+ Abra [http: // localhost: 3000](http: // localhost: 3000) para visualizá-lo no navegador.<br>
